@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_hundle_pointer.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: makamins <makamins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/21 18:45:39 by makamins          #+#    #+#             */
-/*   Updated: 2024/11/25 14:43:15 by makamins         ###   ########.fr       */
+/*   Created: 2024/11/25 14:30:17 by makamins          #+#    #+#             */
+/*   Updated: 2024/11/25 14:37:16 by makamins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdarg.h>
+int	ft_handle_pointer(unsigned long ptr)
+{
+	int	count;
 
-int	ft_putchar(char c);
-int	ft_putstr(char *s);
-int	ft_putnbr(int n);
-int	ft_putnbr_unsigned(unsigned int n);
-int	ft_putnbr_hex(unsigned long n, char *base);
-int	ft_handle_pointer(unsigned long ptr);
-int	ft_printf(const char *format, ...);
-
-#endif
+	count = 0;
+	count += ft_putstr("0x");
+	return (count + ft_putnbr_hex(ptr, "0123456789abcdef"));
+}

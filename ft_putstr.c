@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_pustr.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: makamins <makamins@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/21 18:45:39 by makamins          #+#    #+#             */
-/*   Updated: 2024/11/25 14:43:15 by makamins         ###   ########.fr       */
+/*   Created: 2024/11/25 14:27:13 by makamins          #+#    #+#             */
+/*   Updated: 2024/11/25 14:37:27 by makamins         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdarg.h>
+int	ft_putstr(char *s)
+{
+	int	count;
 
-int	ft_putchar(char c);
-int	ft_putstr(char *s);
-int	ft_putnbr(int n);
-int	ft_putnbr_unsigned(unsigned int n);
-int	ft_putnbr_hex(unsigned long n, char *base);
-int	ft_handle_pointer(unsigned long ptr);
-int	ft_printf(const char *format, ...);
-
-#endif
+	if (!s)
+		return (ft_putstr("null"));
+	count = 0;
+	while (*s)
+		count += ft_putchar(*s++);
+	return (count);
+}
